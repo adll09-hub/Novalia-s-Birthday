@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #120a15;
+    color: #fce4ec;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* Background Sakura */
+.sakura-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.sakura {
+    position: absolute;
+    background: #ffb7c5;
+    border-radius: 150% 0 150% 0;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* Container Utama */
+.main-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+}
+
+.section {
+    display: none;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Passcode PIN */
+.flower-icon { font-size: 2.5rem; margin-bottom: 10px; }
+.section h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 5px; }
+.section p { font-size: 0.85rem; color: #d1c4e9; margin-bottom: 20px; }
+
+.pin-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #ce93d8;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.dot.filled { background-color: #ce93d8; }
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.keypad button {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1.2rem;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+    aspect-ratio: 1;
+}
+
+.keypad button:active { background: rgba(255, 255, 255, 0.3); }
+.error-msg { margin-top: 20px; font-size: 0.75rem; color: #f48fb1; }
+
+/* Kotak Kado */
+.instruction-text { font-size: 1rem; margin-bottom: 30px; color: #f8bbd0; }
+.gift-box {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 40px auto;
+    cursor: pointer;
+    animation: bounce 1.5s infinite alternate;
+}
+.gift-body {
+    position: absolute; bottom: 0; width: 100%; height: 90px;
+    background: #ec407a; border-radius: 0 0 10px 10px;
+    box-shadow: 0 10px 20px rgba(236, 64, 122, 0.3);
+}
+.gift-lid {
+    position: absolute; top: 15px; left: -5px; width: 130px; height: 30px;
+    background: #d81b60; border-radius: 5px;
+}
+@keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
+
+/* Header & Card */
+.header-card, .letter-card, .gallery-section, .bouquet-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.small-tag { font-size: 0.7rem; letter-spacing: 2px; color: #f48fb1; text-transform: uppercase; }
+.header-card h1 { font-size: 1.4rem; margin: 10px 0 5px 0; color: #ffffff; }
+.date-text { font-size: 0.8rem; color: #ba68c8; margin-bottom: 15px; }
+.quote { font-size: 0.85rem; font-style: italic; color: #e1bee7; }
+
+/* --- STYLE DIGITAL BOUQUET (BARU) --- */
+.bouquet-card h3 { color: #f48fb1; font-size: 1rem; margin-bottom: 5px; }
+.bouquet-hint { font-size: 0.75rem; color: #b39ddb; margin-bottom: 15px; }
+
+.flower-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.flower-item {
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 5px;
+}
+
+.flower-item:hover {
+    transform: scale(1.3);
+}
+
+.flower-message-box {
+    background: rgba(255, 182, 193, 0.1);
+    border: 1px dashed #f48fb1;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: #fce4ec;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Surat & Galeri */
+.letter-card h3, .gallery-section h3 { color: #f48fb1; margin-bottom: 12px; font-size: 1rem; }
+.letter-card { text-align: left; font-size: 0.85rem; line-height: 1.6; }
+.signature { margin-top: 15px; text-align: right; }
+.tap-hint { font-size: 0.75rem; color: #b39ddb; margin-bottom: 15px; }
+
+.photo-frame {
+    background: white; padding: 10px 10px 25px 10px; border-radius: 10px;
+    cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: rotate(-2deg); transition: 0.3s;
+}
+.photo-frame:hover { transform: rotate(0deg) scale(1.02); }
+.photo-frame img { width: 100%; height: 220px; object-fit: cover; border-radius: 5px; }
+.photo-caption { display: block; margin-top: 8px; font-size: 0.8rem; color: #880e4f; font-weight: 600; }
+.footer-note { font-size: 0.8rem; color: #ce93d8; margin-top: 30px; }

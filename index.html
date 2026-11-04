@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You, Novalia 🌷</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Efek Bunga Sakura Jatuh -->
+    <div class="sakura-container" id="sakuraContainer"></div>
+
+    <div class="main-container">
+        
+        <!-- BAGIAN 1: KODE PIN / PASSCODE -->
+        <div class="section active" id="passcodeSection">
+            <div class="flower-icon">🌷</div>
+            <h2>For You, Bestie</h2>
+            <p>Masukkan kode rahasia (PIN)</p>
+            
+            <div class="pin-dots">
+                <span class="dot" id="dot1"></span>
+                <span class="dot" id="dot2"></span>
+                <span class="dot" id="dot3"></span>
+                <span class="dot" id="dot4"></span>
+            </div>
+
+            <div class="keypad">
+                <button onclick="pressNum(1)">1</button>
+                <button onclick="pressNum(2)">2</button>
+                <button onclick="pressNum(3)">3</button>
+                <button onclick="pressNum(4)">4</button>
+                <button onclick="pressNum(5)">5</button>
+                <button onclick="pressNum(6)">6</button>
+                <button onclick="pressNum(7)">7</button>
+                <button onclick="pressNum(8)">8</button>
+                <button onclick="pressNum(9)">9</button>
+                <button onclick="clearPin()">C</button>
+                <button onclick="pressNum(0)">0</button>
+                <button onclick="submitPin()">✓</button>
+            </div>
+            <p class="error-msg" id="errorMsg">Hint: your birthday </p>
+        </div>
+
+        <!-- BAGIAN 2: KOTAK KADO -->
+        <div class="section" id="giftSection">
+            <p class="instruction-text">Tap the gift box to open it 🎁</p>
+            <div class="gift-box" onclick="openGift()">
+                <div class="gift-lid"></div>
+                <div class="gift-body"></div>
+            </div>
+        </div>
+
+        <!-- BAGIAN 3: KONTEN UTAMA (UCAPAN, BUKET DIGITAL, SURAT, GALERI) -->
+        <div class="section" id="contentSection">
+            
+            <!-- Ucapan Utama -->
+            <div class="header-card">
+                <span class="small-tag">✨ Your Special Day ✨</span>
+                <h1>HAPPY BIRTHDAY NOVALIA</h1>
+                <p class="date-text">Hari paling istimewa</p>
+                <p class="quote">"Wishing you happiness, good health, and all your dreams come true. 🤍"</p>
+            </div>
+
+            <!-- BUKET BUNGA DIGITAL (FITUR BARU) -->
+            <div class="bouquet-card">
+                <h3>🌸 A Digital Bouquet For You</h3>
+                <p class="bouquet-hint">Touch each flower to reveal its message 🌷</p>
+                
+                <div class="flower-row">
+                    <span class="flower-item" onclick="showFlowerMsg(1)">🌺</span>
+                    <span class="flower-item" onclick="showFlowerMsg(2)">🌸</span>
+                    <span class="flower-item" onclick="showFlowerMsg(3)">🌷</span>
+                    <span class="flower-item" onclick="showFlowerMsg(4)">🌻</span>
+                    <span class="flower-item" onclick="showFlowerMsg(5)">🌹</span>
+                </div>
+                
+                <div class="flower-message-box" id="flowerMsgBox">
+                    ✨ Klik salah satu bunga di atas untuk melihat pesannya!
+                </div>
+            </div>
+
+            <!-- Surat -->
+            <div class="letter-card">
+                <h3>💌 A Letter For You</h3>
+                <p><b>Untuk sahabatku yang paling asik,</b></p>
+                <p>Di hari spesialmu ini, aku cuma mau bilang terima kasih udah jadi tempat sambat terbaik dan partner dari dulu sampai sekarang.</p>
+                <p>Semoga di umur yang baru ini, semua impianmu tercapai dan bahagia selalu!</p>
+                <p class="signature">With all my love,<br><b>Your Friend 🤍</b></p>
+            </div>
+
+            <!-- Galeri Foto -->
+            <div class="gallery-section">
+                <h3>📸 Our Photo Memories</h3>
+                <p class="tap-hint">Tap foto untuk melihat lebih dekat ✨</p>
+                <div class="photo-frame" onclick="alert('Full of smiles, laughter, and cheerful energy ✨')">
+                    <img src="nopal.jpeg" alt="Foto Kenangan">
+                    <span class="photo-caption">Together is a Good Place to Be 💖</span>
+                </div>
+            </div>
+
+            <div class="footer-note">
+                <p>May your life always be filled with flowers 🌸</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
